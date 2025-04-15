@@ -1,0 +1,371 @@
+.skills-container {
+    display: grid;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.skill-category {
+    background: rgba(20, 20, 50, 0.6);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 158, 255, 0.2);
+}
+
+.skill-category h2 {
+    color: #4a9eff;
+    font-family: 'Audiowide', cursive;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-category h2 i {
+    font-size: 1.5em;
+    opacity: 0.8;
+}
+
+.skill-items {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    position: relative;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+.skill-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4a9eff, #8e54e9);
+    border-radius: 4px;
+    width: 0;
+    transition: width 1.5s ease;
+}
+
+/* Category-specific gradients */
+.ai-ml .skill-progress {
+    background: linear-gradient(90deg, #4a9eff, #8e54e9);
+}
+
+.frameworks .skill-progress {
+    background: linear-gradient(90deg, #00ff87, #60efff);
+}
+
+.data-science .skill-progress {
+    background: linear-gradient(90deg, #ff6b6b, #feca57);
+}
+
+.research .skill-progress {
+    background: linear-gradient(90deg, #a8ff78, #78ffd6);
+}
+
+/* Hover effects */
+.skill-item:hover .skill-name {
+    color: #4a9eff;
+}
+
+.skill-item:hover .skill-bar {
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+/* Animation for skill bars on page load */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.skill-item {
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger animation for items */
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive design */
+@media (min-width: 768px) {
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .skill-category {
+        padding: 1.5rem;
+    }
+    
+    .skill-category h2 {
+        font-size: 1.2rem;
+    }
+    
+    .skill-name {
+        font-size: 0.9rem;
+    }
+}
+
+.content {
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(15, 10, 40, 0.8) 50%, rgba(20, 15, 45, 0.6) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.page-title {
+    text-align: center;
+    color: #fff;
+    font-family: 'Audiowide', cursive;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(128, 0, 255, 0.5);
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.skills-section {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title {
+    color: #b380ff;
+    font-family: 'Audiowide', cursive;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(128, 0, 255, 0.4);
+    position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-items: center;
+    position: relative;
+}
+
+.skill-badge {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgba(30, 15, 50, 0.6);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.skill-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(128, 0, 255, 0.2) 0%, rgba(64, 0, 128, 0.1) 100%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.skill-badge::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, rgba(128, 0, 255, 0.5), transparent, rgba(128, 0, 255, 0.5));
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 20px rgba(128, 0, 255, 0.3);
+}
+
+.skill-badge:hover::after {
+    opacity: 1;
+}
+
+.skill-badge img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(128, 0, 255, 0.5));
+}
+
+.skill-badge:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(128, 0, 255, 0.8));
+}
+
+/* Math skills specific styles */
+.skill-badge.math {
+    background: rgba(40, 20, 60, 0.6);
+}
+
+.skill-badge.math i {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(128, 0, 255, 0.3);
+}
+
+.skill-badge.math:hover i {
+    transform: scale(1.1);
+    color: #b380ff;
+    text-shadow: 0 0 15px rgba(128, 0, 255, 0.8);
+}
+
+/* Platform skills specific styles */
+.skill-badge.platform {
+    background: rgba(35, 18, 55, 0.6);
+}
+
+.skill-badge.platform i {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.skill-badge.platform:hover i {
+    transform: scale(1.1);
+    color: #b380ff;
+    text-shadow: 0 0 15px rgba(128, 0, 255, 0.8);
+}
+
+.skill-name {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: max-content;
+    text-shadow: 0 0 10px rgba(128, 0, 255, 0.5);
+}
+
+.skill-badge:hover .skill-name {
+    opacity: 1;
+    bottom: -25px;
+}
+
+/* Black hole animation effects */
+@keyframes pulseGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(128, 0, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(128, 0, 255, 0.8);
+    }
+}
+
+@keyframes gravitationalPull {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px) rotate(5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0deg);
+    }
+}
+
+.skill-badge {
+    animation: gravitationalPull 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+}
+
+/* Stagger animation for badges with gravitational effect */
+.skills-section:nth-child(1) .skill-badge { animation-delay: calc(0.1s * var(--i, 0)); }
+.skills-section:nth-child(2) .skill-badge { animation-delay: calc(0.1s * var(--i, 0) + 0.5s); }
+.skills-section:nth-child(3) .skill-badge { animation-delay: calc(0.1s * var(--i, 0) + 1s); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 40px 20px;
+    }
+
+    .skill-badge {
+        width: 80px;
+        height: 80px;
+    }
+
+    .skill-badge img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skill-badge.math i,
+    .skill-badge.platform i {
+        font-size: 2rem;
+    }
+
+    .skill-name {
+        font-size: 0.7rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+} 

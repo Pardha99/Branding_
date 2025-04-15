@@ -1,0 +1,317 @@
+:root {
+    --space-black: #0a0e17;
+    --neutron-star: #ffffff;
+    --quantum-blue: #4cc9f0;
+    --event-horizon: 12px;
+    --warp-speed: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--space-black);
+    color: var(--neutron-star);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.stellar-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-45deg, #0a0e17, #001220, #000428, #0a0e17);
+    background-size: 400% 400%;
+    animation: nebula 15s ease infinite;
+    z-index: -1;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 64px;
+    background: rgba(20, 20, 50, 0.8);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.logo-container {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+}
+
+.menu-item {
+    padding: 0;
+    margin: 4px 0;
+    position: relative;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+}
+
+.menu-item:hover a {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active a {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 2px solid #4a9eff;
+}
+
+.menu-item i {
+    font-size: 1.2em;
+    color: #4a9eff;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-item span {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    margin-left: 8px;
+}
+
+.menu-item:hover span {
+    opacity: 1;
+}
+
+/* Content styles */
+.content {
+    margin-left: 64px;
+    padding: 40px;
+    flex-grow: 1;
+    max-width: calc(100vw - 64px);
+    overflow-x: hidden;
+}
+
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Add remaining styles from the first styles.css here */
+.celestial-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cosmic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.quantum-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--event-horizon);
+    padding: 1.5rem;
+    transition: var(--warp-speed);
+}
+
+.quantum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(76, 201, 240, 0.2);
+}
+
+/* Include all .style1 to .style5 gradient styles */
+.style1 { background: linear-gradient(145deg, rgba(76, 201, 240, 0.2), rgba(0, 0, 0, 0.1)); border: 1px solid var(--quantum-blue); }
+.style2 { background: linear-gradient(145deg, rgba(255, 105, 180, 0.2), rgba(0, 0, 0, 0.1)); border: 1px solid #ff69b4; }
+.style3 { background: linear-gradient(145deg, rgba(0, 255, 165, 0.2), rgba(0, 0, 0, 0.1)); border: 1px solid #00ffa5; }
+.style4 { background: linear-gradient(145deg, rgba(147, 112, 219, 0.2), rgba(0, 0, 0, 0.1)); border: 1px solid #9370db; }
+.style5 { background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(0, 0, 0, 0.1)); border: 1px solid #ffd700; }
+
+@keyframes nebula {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.page-title {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.quote-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 15px;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+}
+
+.quote-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    font-family: 'Audiowide', cursive;
+}
+
+.quote-author {
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+/* Unique styles for each card */
+.crystal {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    animation: crystalGlow 4s infinite alternate;
+}
+
+.nebula {
+    background: linear-gradient(45deg, rgba(138, 43, 226, 0.2), rgba(75, 0, 130, 0.2));
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+    animation: nebulaShift 8s infinite;
+}
+
+.aurora {
+    background: linear-gradient(60deg, rgba(0, 255, 127, 0.1), rgba(0, 191, 255, 0.1));
+    border: 1px solid rgba(0, 255, 127, 0.2);
+    box-shadow: 0 0 30px rgba(0, 255, 127, 0.3);
+    animation: auroraWave 6s infinite;
+}
+
+.galaxy {
+    background: linear-gradient(30deg, rgba(75, 0, 130, 0.2), rgba(199, 21, 133, 0.2));
+    border: 1px solid rgba(75, 0, 130, 0.3);
+    box-shadow: 0 0 25px rgba(199, 21, 133, 0.4);
+    animation: galaxySpin 10s infinite linear;
+}
+
+.cosmic {
+    background: linear-gradient(120deg, rgba(0, 0, 139, 0.2), rgba(0, 191, 255, 0.2));
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    animation: cosmicPulse 5s infinite;
+}
+
+/* Animations */
+@keyframes crystalGlow {
+    0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); }
+}
+
+@keyframes nebulaShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes auroraWave {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes galaxySpin {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes cosmicPulse {
+    0% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quotes-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .quote-card {
+        min-height: 180px;
+    }
+    
+    blockquote {
+        font-size: 1rem;
+    }
+}

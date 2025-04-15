@@ -1,0 +1,267 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0a0a1f;
+    color: #e1e1ff;
+    min-height: 100vh;
+    display: flex;
+    background: radial-gradient(circle at center, #1a1a3f 0%, #0a0a1f 100%);
+}
+
+.content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Todo Section Styles */
+.todo-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    color: #e1e1ff;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.todo-input button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #718093 0%, #2c3e50 100%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.todo-input button:hover {
+    background: linear-gradient(135deg, #2c3e50 0%, #718093 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.todo-list li:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.todo-list li.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.todo-list li button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #ff4a4a;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.todo-list li button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Calendar Section Styles */
+.calendar-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 300px;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Calendar Styles */
+.custom-calendar {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.month-nav {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e1e1ff;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.month-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#currentMonth {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+.weekdays-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.calendar-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: #e1e1ff;
+    border: 1px solid transparent;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day.today {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: bold;
+}
+
+.calendar-day.highlighted {
+    background: linear-gradient(135deg, #718093 0%, #2c3e50 100%);
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.selected {
+    background: rgba(113, 128, 147, 0.3);
+    color: #fff;
+    border: 2px solid #718093;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.other-month {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+h2 {
+    color: #e1e1ff;
+    margin-bottom: 25px;
+    font-family: 'Audiowide', cursive;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .todo-section,
+    .calendar-section {
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon - Todo & Calendar</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../Moon/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <nav class="sidebar">
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="../index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Me/index.html">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Me</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Projects/index.html">
+                    <i class="fas fa-rocket"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Skills/index.html">
+                    <i class="fas fa-cogs"></i>
+                    <span>Skills</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Achievements/index.html">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Saturn/index.html">
+                    <i class="fas fa-ring"></i>
+                    <span>Saturn</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Uranus/index.html">
+                    <i class="fas fa-circle-notch"></i>
+                    <span>Uranus</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Neptune/index.html">
+                    <i class="fas fa-water"></i>
+                    <span>Neptune</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Sun/index.html">
+                    <i class="fas fa-sun"></i>
+                    <span>Sun</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Moon/index.html">
+                    <i class="fas fa-moon"></i>
+                    <span>Moon</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="container">
+            <div class="todo-section">
+                <h2>Lunar Tasks</h2>
+                <div class="todo-input">
+                    <input type="text" id="taskInput" placeholder="Add a new task...">
+                    <button id="addTask"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul id="todoList" class="todo-list">
+                    <!-- Tasks will be added here dynamically -->
+                </ul>
+            </div>
+
+            <div class="calendar-section">
+                <h2>Lunar Calendar</h2>
+                <div class="custom-calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="month-nav"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="currentMonth">March 2025</h3>
+                        <button id="nextMonth" class="month-nav"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="weekdays-header">
+                        <div class="weekday">S</div>
+                        <div class="weekday">M</div>
+                        <div class="weekday">T</div>
+                        <div class="weekday">W</div>
+                        <div class="weekday">T</div>
+                        <div class="weekday">F</div>
+                        <div class="weekday">S</div>
+                    </div>
+                    <div id="calendar-days" class="calendar-days-grid">
+                        <!-- Days will be added here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../Moon/script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
