@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun - Digital Diary</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Audiowide&display=swap" rel="stylesheet">
+    <script type="module" src="../space3d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <nav class="sidebar">
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="../index.html" title="Home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Me/index.html" title="Me">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Me</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Projects/index.html" title="Projects">
+                    <i class="fas fa-rocket"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Skills/index.html" title="Skills">
+                    <i class="fas fa-brain"></i>
+                    <span>Skills</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Achievements/index.html" title="Achievements">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Saturn/index.html" title="Saturn">
+                    <i class="fas fa-ring"></i>
+                    <span>Saturn</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Uranus/index.html" title="Uranus">
+                    <i class="fas fa-circle-notch"></i>
+                    <span>Uranus</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Neptune/index.html" title="Neptune">
+                    <i class="fas fa-water"></i>
+                    <span>Neptune</span>
+                </a>
+            </li>
+            <li class="menu-item active">
+                <a href="../Sun/index.html" title="Sun">
+                    <i class="fas fa-sun"></i>
+                    <span>Sun</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="../Moon/index.html" title="Moon">
+                    <i class="fas fa-moon"></i>
+                    <span>Moon</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="diary-container">
+            <!-- Authentication Section -->
+            <div id="auth-section" class="auth-section">
+                <div class="auth-box">
+                    <h2>Secure Digital Diary</h2>
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="password" required>
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                    <form id="register-form" class="auth-form hidden">
+                        <div class="form-group">
+                            <label for="new-username">Username</label>
+                            <input type="text" id="new-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="new-password" required>
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <div class="password-input">
+                                <input type="password" id="confirm-password" required>
+                                <button type="button" class="toggle-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Diary Section (Hidden until authenticated) -->
+            <div id="diary-section" class="diary-section hidden">
+                <div class="diary-header">
+                    <h2>My Digital Diary</h2>
+                    <div class="diary-controls">
+                        <button id="new-entry" class="btn">
+                            <i class="fas fa-plus"></i> New Entry
+                        </button>
+                        <button id="logout" class="btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                <div class="diary-content">
+                    <div class="entries-list">
+                        <!-- Entries will be dynamically added here -->
+                    </div>
+                    <div class="entry-editor hidden">
+                        <div class="editor-header">
+                            <input type="text" class="entry-title" placeholder="Title">
+                            <div class="editor-controls">
+                                <button class="btn save-entry">
+                                    <i class="fas fa-save"></i> Save
+                                </button>
+                                <button class="btn cancel-entry">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                        <div class="editor-content">
+                            <textarea class="entry-text" placeholder="Write your thoughts..."></textarea>
+                        </div>
+                        <div class="editor-footer">
+                            <div class="mood-selector">
+                                <span>Mood:</span>
+                                <select class="mood-select">
+                                    <option value="happy">😊 Happy</option>
+                                    <option value="sad">😢 Sad</option>
+                                    <option value="angry">😠 Angry</option>
+                                    <option value="excited">🤩 Excited</option>
+                                    <option value="calm">😌 Calm</option>
+                                </select>
+                            </div>
+                            <div class="weather-selector">
+                                <span>Weather:</span>
+                                <select class="weather-select">
+                                    <option value="sunny">☀️ Sunny</option>
+                                    <option value="cloudy">☁️ Cloudy</option>
+                                    <option value="rainy">🌧️ Rainy</option>
+                                    <option value="stormy">⛈️ Stormy</option>
+                                    <option value="snowy">❄️ Snowy</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
